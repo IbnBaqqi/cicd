@@ -10,12 +10,12 @@ import (
 func TestGetAPIKey(t *testing.T) {
 
 	type test struct {
-		name string
-		input http.Header
-		result string
+		name    string
+		input   http.Header
+		result  string
 		wantErr bool
 	}
-	
+
 	header := http.Header{}
 	header.Set("Authorization", "")
 	header2 := http.Header{}
@@ -23,15 +23,15 @@ func TestGetAPIKey(t *testing.T) {
 
 	tests := []test{
 		{
-			name: "no auth header",
-			input: header,
-			result: "",
+			name:    "no auth header",
+			input:   header,
+			result:  "",
 			wantErr: true,
 		},
 		{
-			name: "valid api key",
-			input: header2,
-			result: "01234",
+			name:    "valid api key",
+			input:   header2,
+			result:  "01234",
 			wantErr: false,
 		},
 	}
